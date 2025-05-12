@@ -1,54 +1,111 @@
-<header>
+import React from "react"; import { Button } from "@/components/ui/button"; import { Card, CardContent } from "@/components/ui/card"; import { CalendarIcon, TicketIcon, LocateIcon, PlusCircle, ClipboardList, BarChart } from "lucide-react";
 
-<!--
-  <<< Author notes: Course header >>>
-  Read <https://skills.github.com/quickstart> for more information about how to build courses using this template.
-  Include a 1280×640 image, course name in sentence case, and a concise description in emphasis.
-  In your repository settings: enable template repository, add your 1280×640 social image, auto delete head branches.
-  Next to "About", add description & tags; disable releases, packages, & environments.
-  Add your open source license, GitHub uses the MIT license.
--->
+export default function HomePage() { return ( <div className="min-h-screen bg-gradient-to-br from-amber-100 to-white text-gray-800 font-sans"> <header className="p-6 shadow-md bg-white flex justify-between items-center"> <h1 className="text-3xl font-bold text-amber-800">Sheher-e-Khaas</h1> <Button className="bg-amber-700 text-white rounded-full">Login / Signup</Button> </header>
 
-# TBD-course-name
+<section className="text-center py-12 px-4">
+    <h2 className="text-4xl font-semibold text-amber-900 mb-4">
+      Janiye, Jiyiye, aur Jashn manaiye – Apne Sheher ke Saath
+    </h2>
+    <p className="text-lg text-gray-600 mb-6">
+      Explore upcoming events, shows, sports, movies, and more in Lucknow.
+    </p>
+    <Button className="bg-amber-600 text-white px-6 py-2 rounded-xl text-lg">
+      Browse Events
+    </Button>
+  </section>
 
-_TBD-course-description_
+  <section className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 py-10">
+    <Card className="rounded-2xl shadow-lg">
+      <CardContent className="p-6 text-center">
+        <CalendarIcon className="mx-auto mb-4 h-10 w-10 text-amber-700" />
+        <h3 className="text-xl font-semibold mb-2">Today's Picks</h3>
+        <p className="text-gray-600">Handpicked events just for you.</p>
+      </CardContent>
+    </Card>
 
-</header>
+    <Card className="rounded-2xl shadow-lg">
+      <CardContent className="p-6 text-center">
+        <TicketIcon className="mx-auto mb-4 h-10 w-10 text-amber-700" />
+        <h3 className="text-xl font-semibold mb-2">Book at MRP</h3>
+        <p className="text-gray-600">No extra fees – just original ticket prices.</p>
+      </CardContent>
+    </Card>
 
-<!--
-  <<< Author notes: Step 1 >>>
-  Choose 3-5 steps for your course.
-  The first step is always the hardest, so pick something easy!
-  Link to docs.github.com for further explanations.
-  Encourage users to open new tabs for steps!
-  TBD-step-1-notes.
--->
+    <Card className="rounded-2xl shadow-lg">
+      <CardContent className="p-6 text-center">
+        <LocateIcon className="mx-auto mb-4 h-10 w-10 text-amber-700" />
+        <h3 className="text-xl font-semibold mb-2">Events Near You</h3>
+        <p className="text-gray-600">Find what's happening in your locality.</p>
+      </CardContent>
+    </Card>
+  </section>
 
-## Step 1: TBD-step-1-name
+  {/* Event Listing Section */}
+  <section className="px-6 py-10 bg-white">
+    <h3 className="text-2xl font-bold text-amber-800 mb-4">Upcoming Events</h3>
+    <div className="grid gap-4 md:grid-cols-3">
+      {[1, 2, 3].map((event) => (
+        <Card key={event} className="rounded-xl shadow-md">
+          <CardContent className="p-4">
+            <h4 className="text-xl font-semibold mb-1">Event Title {event}</h4>
+            <p className="text-sm text-gray-600 mb-2">Date & Time • Venue</p>
+            <p className="text-sm text-gray-700 mb-4">Short description of the event with key details.</p>
+            <Button className="bg-amber-700 text-white w-full">Book Ticket</Button>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  </section>
 
-_Welcome to "TBD-course-name"! :wave:_
+  {/* Event Submission Section */}
+  <section className="px-6 py-10 bg-amber-50">
+    <h3 className="text-2xl font-bold text-amber-800 mb-4">List Your Event</h3>
+    <div className="grid md:grid-cols-2 gap-4">
+      <Card className="rounded-xl shadow-sm">
+        <CardContent className="p-4">
+          <PlusCircle className="h-6 w-6 text-amber-700 mb-2" />
+          <h4 className="text-lg font-semibold mb-2">Promote Your Event</h4>
+          <p className="text-sm text-gray-600">Submit your event details, date, location, and ticket info to reach the local audience.</p>
+          <Button className="mt-4 bg-amber-700 text-white">Add Event</Button>
+        </CardContent>
+      </Card>
+    </div>
+  </section>
 
-TBD-step-1-information
+  {/* Orders Section */}
+  <section className="px-6 py-10">
+    <h3 className="text-2xl font-bold text-amber-800 mb-4">My Bookings</h3>
+    <div className="grid gap-4">
+      <Card className="rounded-lg shadow">
+        <CardContent className="p-4">
+          <ClipboardList className="h-5 w-5 inline-block mr-2 text-amber-700" />
+          <span className="font-medium">You have 2 upcoming bookings.</span>
+          <p className="text-sm text-gray-600 mt-1">See full list in your dashboard.</p>
+        </CardContent>
+      </Card>
+    </div>
+  </section>
 
-**What is _TBD-term-1_**: TBD-definition-1
+  {/* Sales Section */}
+  <section className="px-6 py-10 bg-amber-100">
+    <h3 className="text-2xl font-bold text-amber-800 mb-4">Event Sales Report</h3>
+    <div className="grid gap-4">
+      <Card className="rounded-lg shadow">
+        <CardContent className="p-4">
+          <BarChart className="h-5 w-5 inline-block mr-2 text-amber-700" />
+          <span className="font-medium">Track ticket sales for your listed events.</span>
+          <p className="text-sm text-gray-600 mt-1">View breakdown by event and date.</p>
+        </CardContent>
+      </Card>
+    </div>
+  </section>
 
-### :keyboard: Activity: TBD-step-1-name
+  {/* Footer */}
+  <footer className="bg-amber-50 py-6 text-center text-sm text-gray-500">
+    &copy; 2025 Sheher-e-Khaas. Made with love in Lucknow.<br />
+    Customer Care: <a href="tel:9919900291" className="text-amber-700 font-medium">9919900291</a>
+  </footer>
+</div>
 
-1. Open a new browser tab, and work on the steps in your second tab while you read the instructions in this tab.
-1. TBD-step-1-instructions.
-1. Wait about 20 seconds then refresh this page (the one you're following instructions from). [GitHub Actions](https://docs.github.com/en/actions) will automatically update to the next step.
+); }
 
-<footer>
-
-<!--
-  <<< Author notes: Footer >>>
-  Add a link to get support, GitHub status page, code of conduct, license link.
--->
-
----
-
-Get help: [TBD-support](TBD-support-link) &bull; [Review the GitHub status page](https://www.githubstatus.com/)
-
-&copy; 2023 TBD-copyright-holder &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
-
-</footer>
